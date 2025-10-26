@@ -161,3 +161,79 @@ ul.services {
 /* 💬 Utility */
 .center { text-align: center; }
 .small { font-size: 14px; color: #666; }
+
+/* 💙 Center Alignment Fixes */
+section, section h2, section p {
+  text-align: center !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+#walkthrough button {
+  display: block;
+  margin: 0 auto;
+}
+
+#walkthrough div {
+  text-align: center;
+}
+
+/* 💌 Contact Form Layout Fix */
+#contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+#contactForm label {
+  display: block;
+  font-weight: 600;
+  text-align: left;
+}
+
+#contactForm input,
+#contactForm textarea {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+#contactForm button {
+  margin-top: 8px;
+  align-self: center;
+  width: 200px;
+}
+
+#contact {
+  max-width: 680px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* 💡 Fix: What We Do Best - uniform card images */
+ul.services .card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* Center grid properly and keep balance */
+ul.services {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  align-items: start;
+}
+
+/* Responsive adjustment for mobile view */
+@media (max-width: 768px) {
+  ul.services .card img {
+    height: 160px;
+  }
+}
+
