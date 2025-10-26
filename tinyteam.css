@@ -180,6 +180,59 @@ ul.services {
 footer {
   padding: 40px 16px;
   color: var(--soft);
+
+  /* 🩵 CENTER FIXES FOR HEADINGS, BUTTON, AND FORM */
+
+/* Center all section headings and subtitles */
+section h2,
+section p {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Center the “Walk Me Through” button */
+#walkthrough .btn {
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* Keep the demo section (See It In Action) centered */
+#walkthrough {
+  text-align: center;
+}
+
+/* Walkthrough modal fix – prevents long scroll sticking */
+#walkModal .modal-content {
+  max-height: 90vh;
+  overflow-y: auto;
+  text-align: center;
+}
+
+/* Center images inside modal */
+#walkModal .modal-content div {
+  text-align: center;
+}
+
+/* Fix form alignment */
+#contact form {
+  display: block;
+  margin: 0 auto;
+  text-align: left;
+  max-width: 620px;
+}
+
+/* Make form labels stack neatly on small screens */
+@media (max-width: 700px) {
+  #contact form label,
+  #contact form input,
+  #contact form textarea {
+    display: block;
+    width: 100%;
+  }
+}
+
   text-align: center;
   font-size: .95rem;
 }
