@@ -9,95 +9,19 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <style>
-    :root{
-      --blue:#A7C7E7;
-      --cream:#F9F6EE;
-      --soft:#BDBDBD;
-      --text:#333;
-      --brown:#4E342E;
-      --bg-light:#faf8f6;
-    }
-
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:'Poppins',sans-serif;
-      background:var(--cream);
-      color:var(--text);
-      min-height:100vh;
-      overflow-x:hidden;
-      transition:opacity .6s ease;
-    }
-    body.fade-out{opacity:0;}
-
-    /* Background blobs */
-    .bg{position:fixed;inset:0;z-index:-2;overflow:hidden;background:linear-gradient(135deg,#F9F6EE 0%,#F7FBFF 100%);}
-    .blob{position:absolute;filter:blur(40px);opacity:.85;animation:drift 14s ease-in-out infinite;transform-origin:center;}
-    .blob.a{width:520px;height:420px;background:linear-gradient(120deg,#A7C7E7 0%,#DCC29E 60%);top:-60px;left:-100px;}
-    .blob.b{width:420px;height:360px;background:linear-gradient(120deg,#C6F0E1 0%,#A7C7E7 60%);bottom:-80px;right:-120px;animation-delay:3s;}
-    .blob.c{width:360px;height:300px;background:linear-gradient(120deg,#F2D4E6 0%,#A7C7E7 60%);top:10%;right:10%;animation-delay:6s;}
-    @keyframes drift{0%{transform:translateY(0)scale(1)}50%{transform:translateY(-30px)scale(1.03)}100%{transform:translateY(0)scale(1)}}
-
-    /* Header */
-    header{text-align:center;padding:56px 20px 24px;position:relative;}
-    .logo-wrap{display:inline-block;width:140px;height:140px;border-radius:50%;padding:8px;background:rgba(255,255,255,0.7);backdrop-filter:blur(6px);box-shadow:0 0 25px rgba(167,199,231,0.4);}
-    .logo-wrap img{width:100%;height:100%;border-radius:50%;border:2px solid rgba(255,255,255,0.8);}
-    .glow{position:absolute;left:50%;top:64px;transform:translateX(-50%);width:220px;height:220px;border-radius:50%;filter:blur(34px);z-index:-1;background:radial-gradient(circle at 25% 25%,rgba(167,199,231,0.25),rgba(210,185,222,0.15),rgba(198,240,225,0.08));}
-
-    h1{color:var(--brown);font-size:2.5rem;margin:18px 0 6px;}
-    h2{color:var(--brown);font-weight:500;margin:0 0 18px;}
-    p.lead{max-width:900px;margin:0 auto 12px;color:#555;font-size:1.05rem;}
-
-    /* Buttons & cards */
-    .btn{display:inline-block;margin-top:18px;padding:12px 22px;background:var(--brown);color:#fff;text-decoration:none;border-radius:10px;font-weight:600;box-shadow:0 6px 18px rgba(0,0,0,0.06);transition:transform .18s,background .18s;border:none;cursor:pointer;}
-    .btn:hover{transform:translateY(-3px);background:#3e241e;}
-    ul.services{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:18px;}
-    .card{border-radius:12px;padding:18px;background:#fff;box-shadow:0 8px 22px rgba(0,0,0,0.06);text-align:left;transition:transform .25s ease,box-shadow .25s ease;}
-    .card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(0,0,0,0.1);}
-    .card h3{color:var(--brown);margin:0 0 8px;}
-    .card p{color:#444;font-size:.92rem;margin:0;}
-
-    /* Contact form */
-    form#contactForm{text-align:left;background:#fff;padding:20px;border-radius:10px;box-shadow:0 10px 25px rgba(0,0,0,0.06);max-width:620px;margin:0 auto;}
-    input,textarea{width:100%;padding:10px;margin:8px 0;border-radius:8px;border:1px solid #e6e6e6;font-family:inherit;}
-    label{font-weight:600;font-size:.92rem;color:#444;}
-    footer{padding:40px 16px;color:var(--soft);text-align:center;font-size:.95rem;}
-
-    /* Modal base */
-    .modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:2000;justify-content:center;align-items:center;padding:24px;}
-    .modal-overlay.show{display:flex;animation:modalFade .25s ease-in-out;}
-    @keyframes modalFade{from{opacity:0}to{opacity:1}}
-    .modal-content{width:100%;max-width:540px;background:#fff;border-radius:14px;padding:28px;box-shadow:0 20px 60px rgba(0,0,0,0.25);color:var(--brown);position:relative;}
-    .modal-content h2{margin:0 0 8px;font-size:1.5rem;}
-    .modal-content p{margin:0 0 16px;color:#666;}
-    .close-btn{position:absolute;right:16px;top:12px;font-size:22px;color:var(--brown);cursor:pointer;}
-
-    /* Walkthrough modal look */
-    #walkModal.modal-overlay {
-      background: rgba(0,0,0,0.55);
-      backdrop-filter: blur(6px);
-      transition: opacity 0.4s ease;
-    }
-    #walkModal .modal-content {
-      box-shadow: 0 0 40px rgba(167,199,231,0.45);
-      animation: modalPop 0.4s ease;
-      background: #fffaf7;
-    }
-    @keyframes modalPop {
-      0% { transform: translateY(40px) scale(0.95); opacity: 0; }
-      100% { transform: translateY(0) scale(1); opacity: 1; }
-    }
-  </style>
+  <!-- 🎨 Unified Brand Styles -->
+  <link rel="stylesheet" href="tinyteam.css">
 </head>
 
 <body>
+  <!-- Background -->
   <div class="bg">
     <div class="blob a"></div>
     <div class="blob b"></div>
     <div class="blob c"></div>
   </div>
 
+  <!-- HEADER -->
   <header>
     <div class="glow"></div>
     <div class="logo-wrap"><img src="logo.png" alt="Tiny Team Digital Studio logo"></div>
@@ -107,27 +31,51 @@
     <button id="startProjectBtn" class="btn">Start a Project</button>
   </header>
 
+  <!-- MAIN CONTENT -->
   <main>
+    <!-- SERVICES -->
     <section>
-      <h2 style="color:var(--brown);margin-bottom:14px;">What We Do Best</h2>
-      <p style="color:#666;margin-bottom:16px;">Transforming your ideas into digital experiences that work, wow, and win.</p>
+      <h2>What We Do Best</h2>
+      <p>Transforming your ideas into digital experiences that work, wow, and win.</p>
       <ul class="services">
-        <li><div class="card"><img src="funnel.jpg" style="width:100%;border-radius:10px;margin-bottom:10px;"><h3>Funnel Design & Automation</h3><p>From clicks to conversions — we build funnels that automate your growth and free your time.</p></div></li>
-        <li><div class="card"><img src="brand.jpg" style="width:100%;border-radius:10px;margin-bottom:10px;"><h3>Brand & Digital Identity</h3><p>Design that defines you. We craft visual stories that your audience remembers and trusts.</p></div></li>
-        <li><div class="card"><img src="workflow1.jpg" style="width:100%;border-radius:10px;margin-bottom:10px;"><h3>Workflow Optimization</h3><p>Streamline your process with automations that make your business run smoother than ever.</p></div></li>
-        <li><div class="card"><img src="youtube.jpg" style="width:100%;border-radius:10px;margin-bottom:10px;"><h3>Faceless YouTube Systems</h3><p>Grow on autopilot. We design faceless video systems that boost engagement and brand visibility.</p></div></li>
+        <li>
+          <div class="card">
+            <img src="funnel.jpg" alt="Funnel Design & Automation" style="width:100%;border-radius:10px;margin-bottom:10px;">
+            <h3>Funnel Design & Automation</h3>
+            <p>From clicks to conversions — we build funnels that automate your growth and free your time.</p>
+          </div>
+        </li>
+        <li>
+          <div class="card">
+            <img src="brand.jpg" alt="Brand & Digital Identity" style="width:100%;border-radius:10px;margin-bottom:10px;">
+            <h3>Brand & Digital Identity</h3>
+            <p>Design that defines you. We craft visual stories that your audience remembers and trusts.</p>
+          </div>
+        </li>
+        <li>
+          <div class="card">
+            <img src="workflow1.jpg" alt="Workflow Optimization" style="width:100%;border-radius:10px;margin-bottom:10px;">
+            <h3>Workflow Optimization</h3>
+            <p>Streamline your process with automations that make your business run smoother than ever.</p>
+          </div>
+        </li>
+        <li>
+          <div class="card">
+            <img src="youtube.jpg" alt="Faceless YouTube Systems" style="width:100%;border-radius:10px;margin-bottom:10px;">
+            <h3>Faceless YouTube Systems</h3>
+            <p>Grow on autopilot. We design faceless video systems that boost engagement and brand visibility.</p>
+          </div>
+        </li>
       </ul>
     </section>
 
     <!-- SEE IT IN ACTION -->
-    <section id="walkthrough" style="margin-top:44px;">
-      <h2 style="color:var(--brown);margin-bottom:10px;">See It in Action</h2>
-      <p style="color:#666;max-width:680px;margin:0 auto 24px;">
-        Experience how a funnel really works — from first click to automation.
-        This short demo shows how our templates bring your brand to life.
-      </p>
+    <section id="walkthrough">
+      <h2>See It in Action</h2>
+      <p>Experience how a funnel really works — from first click to automation.<br>
+      This short demo shows how our templates bring your brand to life.</p>
 
-      <div style="background:#fff;padding:28px;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,0.06);max-width:780px;margin:0 auto;">
+      <div class="demo-box" style="background:#fff;padding:28px;border-radius:14px;box-shadow:0 8px 24px rgba(0,0,0,0.06);max-width:780px;margin:0 auto;">
         <img src="funnel-demo.png" alt="Funnel preview" style="width:100%;border-radius:10px;margin-bottom:18px;">
         <button id="openWalkthrough" class="btn">🚀 Walk Me Through (I’m Excited!)</button>
       </div>
@@ -135,37 +83,32 @@
 
     <!-- WALKTHROUGH MODAL -->
     <div id="walkModal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true">
-      <div class="modal-content" role="document" style="max-width:650px;">
+      <div class="modal-content" role="document">
         <button class="close-btn" aria-label="Close walkthrough">&times;</button>
-        <h2 style="margin-top:0;">🚀 Funnel Walkthrough</h2>
-        <p style="color:#666; margin-bottom:20px;">
-          See how your funnel transforms simple clicks into real client connections 👇
-        </p>
+        <h2>🚀 Funnel Walkthrough</h2>
+        <p>See how your funnel transforms simple clicks into real client connections 👇</p>
 
-        <div style="text-align:left;color:#555;line-height:1.7;">
+        <div style="color:#555;line-height:1.7;text-align:left;">
           <div style="margin-bottom:24px;">
-            <img src="templates/landingpage.png" alt="Landing Page preview" style="width:100%;border-radius:10px;margin-bottom:10px;">
-            <strong>Step 1 – Landing Page:</strong>
+            <img src="templates/landingpage.png" alt="Landing Page preview">
+            <strong>Step 1 – Landing Page:</strong>  
             This is where your visitors first meet you — clean, clear, and designed to highlight your offer with a confident <strong>call-to-action</strong>.
           </div>
 
           <div style="margin-bottom:24px;">
-            <img src="templates/automation.png" alt="Automation setup preview" style="width:100%;border-radius:10px;margin-bottom:10px;">
-            <strong>Step 2 – Automation:</strong>
+            <img src="templates/automation.png" alt="Automation setup preview">
+            <strong>Step 2 – Automation:</strong>  
             Once they fill out your form or click a button, your system takes over: sending <strong>confirmation emails</strong>, follow-ups, or booking links — <em>all automatically</em>.
           </div>
 
           <div style="margin-bottom:24px;">
-            <img src="templates/thankyou.png" alt="Thank You page preview" style="width:100%;border-radius:10px;margin-bottom:10px;">
-            <strong>Step 3 – Thank You Page:</strong>
+            <img src="templates/thankyou.png" alt="Thank You page preview">
+            <strong>Step 3 – Thank You Page:</strong>  
             Every new lead gets celebrated 🎉 and guided to the next step — whether that’s booking a call, paying, or joining your community.
           </div>
         </div>
 
-        <p style="color:#666; text-align:center; margin:16px 0;">
-          Want to see how it’s built? Download the free template or start your own funnel below.
-        </p>
-
+        <p style="text-align:center;">Want to see how it’s built? Download the free template or start your own funnel below.</p>
         <div style="display:flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:16px;">
           <a href="templates/funnel-template.zip" class="btn" download>⬇️ Get Free Template</a>
           <button class="btn" id="startProjectFromWalkthrough">Start My Project</button>
@@ -174,9 +117,10 @@
     </div>
 
     <!-- CONTACT -->
-    <section id="contact" style="margin-top:60px;">
-      <h2 style="color:var(--brown);margin-bottom:8px;">Let’s Build Something Amazing Together</h2>
-      <p style="color:#666;margin-bottom:16px;">We’d love to collaborate! Drop a message below and let’s make it happen.</p>
+    <section id="contact">
+      <h2>Let’s Build Something Amazing Together</h2>
+      <p>We’d love to collaborate! Drop a message below and let’s make it happen.</p>
+
       <form id="contactForm">
         <label for="name">Name</label>
         <input id="name" name="name" required placeholder="Your name">
@@ -186,12 +130,14 @@
         <textarea id="message" name="message" rows="5" required placeholder="Tell us about your project..."></textarea>
         <button type="submit" class="btn" style="width:100%;">Send Message</button>
       </form>
-      <p style="color:#777;margin-top:12px;">Or email us directly: 
+
+      <p style="margin-top:12px;">Or email us directly:  
         <a href="mailto:smallsteps@tinyteamstudio.online" style="color:var(--brown);font-weight:600;">smallsteps@tinyteamstudio.online</a>
       </p>
     </section>
   </main>
 
+  <!-- FOOTER -->
   <footer>© 2025 Tiny Team Digital Studio • Designed by Luzien Joseph</footer>
 
   <!-- PROJECT MODAL -->
@@ -200,15 +146,18 @@
       <button class="close-btn" aria-label="Close modal">&times;</button>
       <h2>Start a Project</h2>
       <p>Quick details help us estimate scope — pick services and leave a short note.</p>
+
       <form id="projectForm" action="https://docs.google.com/forms/d/e/1FAIpQLSforN4hmDAUwmZAbVplGEr7tjOeHZ9H_dr-uDmwJ5P-T3m0JQ/formResponse" method="POST" target="_blank">
         <input type="text" name="entry.1513897006" placeholder="Your Name" required>
         <input type="email" name="entry.1673846018" placeholder="Your Email" required>
+
         <div class="checkbox-group">
           <label><input type="checkbox" name="entry.1063306987" value="Funnel Design & Automation"> Funnel Design & Automation</label>
           <label><input type="checkbox" name="entry.1063306987" value="Brand & Digital Identity"> Brand & Digital Identity</label>
           <label><input type="checkbox" name="entry.1063306987" value="Workflow Optimization"> Workflow Optimization</label>
           <label><input type="checkbox" name="entry.1063306987" value="Faceless YouTube Systems"> Faceless YouTube Systems</label>
         </div>
+
         <textarea name="entry.9999999999" rows="4" placeholder="Tell us about your project..."></textarea>
         <button type="submit" class="btn" style="width:100%;">Submit</button>
       </form>
