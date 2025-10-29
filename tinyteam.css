@@ -1,225 +1,163 @@
-/* 🧩 FINAL FIX — Start a Project Modal Alignment & Sizing */
-#projectModal .modal-content {
-  background: var(--cream, #fffefb);
-  padding: 1.8rem 2rem;
-  border-radius: 14px;
-  max-width: 420px;      /* ✅ smaller, cleaner size */
-  width: 100%;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-  position: relative;
-  animation: slideUp 0.4s ease;
-  text-align: left !important; /* force base left alignment */
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Tiny Team Digital Studio | Luzien Joseph</title>
 
-/* 🧭 Keep only the heading centered */
-#projectModal .modal-content h2,
-#projectModal .modal-content p {
-  text-align: center !important;
-  margin-left: auto;
-  margin-right: auto;
-}
+  <!-- Google font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-/* 🧾 Align the form fields + checkboxes left */
-#projectModal form,
-#projectModal input,
-#projectModal textarea,
-#projectModal .checkbox-group,
-#projectModal .checkbox-group label {
-  text-align: left !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  align-items: flex-start !important;
-  justify-content: flex-start !important;
-}
+  <!-- Unified Brand Styles -->
+  <link rel="stylesheet" href="tinyteam.css">
+</head>
 
-/* ✅ Form structure */
-#projectModal form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
+<body>
+  <!-- Background -->
+  <div class="bg">
+    <div class="blob a"></div>
+    <div class="blob b"></div>
+    <div class="blob c"></div>
+  </div>
 
-#projectModal input,
-#projectModal textarea {
-  width: 100%;
-  padding: 0.7rem 0.8rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-size: 0.95rem;
-  font-family: 'Poppins', sans-serif;
-  background: #fff;
-}
+  <!-- HEADER -->
+  <header>
+    <div class="glow"></div>
+    <div class="logo-wrap"><img src="logo.png" alt="Tiny Team Digital Studio logo"></div>
+    <h1>Tiny Team Digital Studio</h1>
+    <h2>Tiny team. Big results.</h2>
+    <p class="lead">We craft smart, modern digital systems — from funnels and automation to YouTube growth — helping you scale effortlessly with style and strategy.</p>
+    <button id="startProjectBtn" class="btn">Start a Project</button>
+  </header>
 
-#projectModal textarea {
-  resize: vertical;
-}
+  <!-- MAIN -->
+  <main>
+    <!-- SERVICES -->
+    <section>
+      <h2>What We Do Best</h2>
+      <p>Transforming your ideas into digital experiences that work, wow, and win.</p>
+      <ul class="services">
+        <li><div class="card"><img src="funnel.jpg" alt="Funnel Design"><h3>Funnel Design & Automation</h3><p>From clicks to conversions — we build funnels that automate your growth and free your time.</p></div></li>
+        <li><div class="card"><img src="brand.jpg" alt="Brand Design"><h3>Brand & Digital Identity</h3><p>Design that defines you. We craft visual stories that your audience remembers and trusts.</p></div></li>
+        <li><div class="card"><img src="workflow1.jpg" alt="Workflow"><h3>Workflow Optimization</h3><p>Streamline your process with automations that make your business run smoother than ever.</p></div></li>
+        <li><div class="card"><img src="youtube.jpg" alt="YouTube Systems"><h3>Faceless YouTube Systems</h3><p>Grow on autopilot. We design faceless video systems that boost engagement and brand visibility.</p></div></li>
+      </ul>
+    </section>
 
-/* ✅ Checkbox group layout */
-#projectModal .checkbox-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
+    <!-- WALKTHROUGH -->
+    <section id="walkthrough">
+      <h2>See It in Action</h2>
+      <p>Experience how a funnel really works — from first click to automation.<br>This short demo shows how our templates bring your brand to life.</p>
 
-#projectModal .checkbox-group label {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  font-size: 0.9rem;
-  color: var(--text, #333);
-}
+      <div class="demo-box">
+        <img src="funnel-demo.png" alt="Funnel preview">
+        <button id="openWalkthrough" class="btn">🚀 Walk Me Through (I’m Excited!)</button>
+      </div>
+    </section>
 
-/* ✅ Submit button */
-#projectModal .btn {
-  width: 100%;
-  font-size: 1rem;
-  padding: 0.9rem;
-  border-radius: 8px;
-  margin-top: 0.5rem;
-  background: var(--brown, #4E342E);
-  color: #fff;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-#projectModal .btn:hover { background: #3b241f; }
+    <!-- WALKTHROUGH MODAL -->
+    <div id="walkModal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+      <div class="modal-content" role="document">
+        <button class="close-btn" aria-label="Close walkthrough">&times;</button>
+        <h2>🚀 Funnel Walkthrough</h2>
+        <p>See how your funnel transforms simple clicks into real client connections 👇</p>
 
-/* 📱 Mobile Optimization */
-@media (max-width: 600px) {
-  #projectModal .modal-content {
-    width: 90%;
-    max-width: 340px;  /* ✅ tighter on phones */
-    padding: 1.5rem;
-  }
+        <!-- Step 1 -->
+        <div class="walk-card">
+          <img src="templates/landingpage.png" alt="Landing Page preview">
+          <strong>Step 1 – Landing Page</strong>
+          <p>This is where your visitors first meet you — clean, clear, and designed to highlight your offer with a confident <strong>call-to-action</strong>.</p>
+        </div>
 
-  #projectModal .checkbox-group label {
-    font-size: 0.9rem;
-  }
-}
-/* 🎯 FINAL FIX — Compact & Centered Start a Project Modal */
-#projectModal.modal-overlay {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.5);
-  backdrop-filter: blur(6px);
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
+        <!-- Step 2 -->
+        <div class="walk-card">
+          <img src="templates/automation.png" alt="Automation setup preview">
+          <strong>Step 2 – Automation</strong>
+          <p>Once they fill out your form or click a button, your system takes over: sending <strong>confirmation emails</strong>, follow-ups, or booking links — <em>all automatically</em>.</p>
+        </div>
 
-#projectModal.modal-overlay.show {
-  display: flex;
-  animation: fadeIn 0.3s ease forwards;
-}
+        <!-- Step 3 -->
+        <div class="walk-card">
+          <img src="templates/thankyou.png" alt="Thank You page preview">
+          <strong>Step 3 – Thank You Page</strong>
+          <p>Every new lead gets celebrated 🎉 and guided to the next step — whether that’s booking a call, paying, or joining your community.</p>
+        </div>
 
-/* 🪄 Modal Box */
-#projectModal .modal-content {
-  background: var(--cream, #fffefb);
-  border-radius: 14px;
-  padding: 1.8rem 2rem;
-  width: 90%;
-  max-width: 360px;   /* ✅ smaller, cleaner form box */
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-  animation: slideUp 0.4s ease;
-  position: relative;
-  text-align: left !important;
-  margin: 0 auto;     /* ✅ centers horizontally */
-}
+        <p style="color:#666; text-align:center; margin:16px 0;">
+          Want to see how it’s built? Download the free template or start your own funnel below.
+        </p>
 
-/* 🪶 Header */
-#projectModal .modal-content h2,
-#projectModal .modal-content p {
-  text-align: center !important;
-  margin-bottom: 0.8rem;
-  color: var(--brown, #4E342E);
-}
+        <div class="walk-actions">
+          <a href="templates/funnel-template.zip" class="btn" download>⬇️ Get Free Template</a>
+          <button class="btn" id="startProjectFromWalkthrough">Start My Project</button>
+        </div>
+      </div>
+    </div>
 
-/* 🧾 Form */
-#projectModal form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-}
+    <!-- CONTACT -->
+    <section id="contact">
+      <h2>Let’s Build Something Amazing Together</h2>
+      <p>We’d love to collaborate! Drop a message below and let’s make it happen.</p>
+      <form id="contactForm">
+        <label for="name">Name</label>
+        <input id="name" name="name" required placeholder="Your name">
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" required placeholder="you@example.com">
+        <label for="message">Message</label>
+        <textarea id="message" name="message" rows="5" required placeholder="Tell us about your project..."></textarea>
+        <button type="submit" class="btn">Send Message</button>
+      </form>
+      <p>Or email us directly: 
+        <a href="mailto:smallsteps@tinyteamstudio.online" style="color:var(--brown);font-weight:600;">smallsteps@tinyteamstudio.online</a>
+      </p>
+    </section>
+  </main>
 
-#projectModal input,
-#projectModal textarea {
-  width: 100%;
-  padding: 0.7rem;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  font-family: 'Poppins', sans-serif;
-  font-size: 0.95rem;
-  background: #fff;
-}
+  <footer>© 2025 Tiny Team Digital Studio • Designed by Luzien Joseph</footer>
 
-#projectModal textarea {
-  resize: vertical;
-}
+  <!-- PROJECT MODAL -->
+  <div id="projectModal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true">
+    <div class="modal-content">
+      <button class="close-btn" aria-label="Close modal">&times;</button>
+      <h2>Start a Project</h2>
+      <p>Quick details help us estimate scope — pick services and leave a short note.</p>
+      <form id="projectForm" action="https://docs.google.com/forms/d/e/1FAIpQLSforN4hmDAUwmZAbVplGEr7tjOeHZ9H_dr-uDmwJ5P-T3m0JQ/formResponse" method="POST" target="_blank">
+        <input type="text" name="entry.1513897006" placeholder="Your Name" required>
+        <input type="email" name="entry.1673846018" placeholder="Your Email" required>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="entry.1063306987" value="Funnel Design & Automation"> Funnel Design & Automation</label>
+          <label><input type="checkbox" name="entry.1063306987" value="Brand & Digital Identity"> Brand & Digital Identity</label>
+          <label><input type="checkbox" name="entry.1063306987" value="Workflow Optimization"> Workflow Optimization</label>
+          <label><input type="checkbox" name="entry.1063306987" value="Faceless YouTube Systems"> Faceless YouTube Systems</label>
+        </div>
+        <textarea name="entry.9999999999" rows="4" placeholder="Tell us about your project..."></textarea>
+        <button type="submit" class="btn">Submit</button>
+      </form>
+    </div>
+  </div>
 
-/* ✅ Checkbox Group */
-#projectModal .checkbox-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  text-align: left;
-}
+  <!-- JS -->
+  <script>
+    // Project Modal
+    (() => {
+      const modal = document.getElementById('projectModal');
+      const openBtn = document.getElementById('startProjectBtn');
+      const closeBtn = modal.querySelector('.close-btn');
+      openBtn.addEventListener('click', () => modal.classList.add('show'));
+      closeBtn.addEventListener('click', () => modal.classList.remove('show'));
+      modal.addEventListener('click', e => { if(e.target === modal) modal.classList.remove('show'); });
+    })();
 
-#projectModal .checkbox-group label {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.9rem;
-  color: var(--text, #333);
-}
-
-/* ✅ Button */
-#projectModal .btn {
-  width: 100%;
-  font-size: 1rem;
-  padding: 0.8rem;
-  border-radius: 8px;
-  margin-top: 0.5rem;
-  background: var(--brown, #4E342E);
-  color: #fff;
-  border: none;
-  cursor: pointer;
-  transition: background 0.3s ease;
-}
-
-#projectModal .btn:hover {
-  background: #3b241f;
-}
-
-/* ✖ Close Button */
-#projectModal .close-btn {
-  position: absolute;
-  top: 0.6rem;
-  right: 0.9rem;
-  background: none;
-  border: none;
-  font-size: 1.3rem;
-  color: var(--brown, #4E342E);
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-#projectModal .close-btn:hover { transform: scale(1.2); }
-
-/* ✨ Animation */
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes slideUp {
-  from { transform: translateY(30px); opacity: 0; }
-  to { transform: translateY(0); opacity: 1; }
-}
-
-/* 📱 Mobile Tweaks */
-@media (max-width: 600px) {
-  #projectModal .modal-content {
-    width: 90%;
-    max-width: 320px;  /* ✅ slightly smaller on phones */
-    padding: 1.5rem;
-  }
-}
+    // Walkthrough Modal
+    (() => {
+      const walkModal = document.getElementById('walkModal');
+      const openBtn = document.getElementById('openWalkthrough');
+      const closeBtn = walkModal.querySelector('.close-btn');
+      openBtn.addEventListener('click', () => walkModal.classList.add('show'));
+      closeBtn.addEventListener('click', () => walkModal.classList.remove('show'));
+      walkModal.addEventListener('click', e => { if(e.target === walkModal) walkModal.classList.remove('show'); });
+    })();
+  </script>
+</body>
+</html>
