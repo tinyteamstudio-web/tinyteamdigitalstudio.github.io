@@ -1,419 +1,210 @@
-/* tinyteam.css — Tiny Team Digital Studio */
-
-/* 🎨 Brand Palette */
-:root {
-  --blue: #A7C7E7;
-  --cream: #F9F6EE;
-  --soft: #BDBDBD;
-  --text: #333333;
-  --brown: #4E342E;
-}
-
-/* 🩵 Base Layout */
-* { box-sizing: border-box; }
-html, body { height: 100%; margin: 0; }
-body {
-  font-family: 'Poppins', sans-serif;
-  background: var(--cream);
-  color: var(--text);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  line-height: 1.6;
-  overflow-x: hidden;
-}
-
-/* 🌈 Background Blobs */
-.bg { position: fixed; inset: 0; z-index: -2;
-  background: linear-gradient(135deg, #F9F6EE 0%, #F7FBFF 100%); }
-.blob {
-  position: absolute; filter: blur(40px); opacity: .85;
-  animation: drift 14s ease-in-out infinite; transform-origin: center;
-}
-.blob.a { width:520px; height:420px; background:linear-gradient(120deg,#A7C7E7 0%,#DCC29E 60%); top:-60px; left:-100px; }
-.blob.b { width:420px; height:360px; background:linear-gradient(120deg,#C6F0E1 0%,#A7C7E7 60%); bottom:-80px; right:-120px; animation-delay:3s; }
-.blob.c { width:360px; height:300px; background:linear-gradient(120deg,#F2D4E6 0%,#A7C7E7 60%); top:10%; right:10%; animation-delay:6s; }
-
-@keyframes drift {
-  0% { transform: translateY(0) scale(1); }
-  50% { transform: translateY(-30px) scale(1.03); }
-  100% { transform: translateY(0) scale(1); }
-}
-
-/* 🪞 Header */
-header {
-  text-align: center; padding: 56px 20px 24px; position: relative;
-}
-.logo-wrap {
-  display:inline-block; width:140px; height:140px; border-radius:50%;
-  padding:8px; background:rgba(255,255,255,0.7);
-  backdrop-filter:blur(6px);
-  box-shadow:0 0 25px rgba(167,199,231,0.4);
-}
-.logo-wrap img {
-  width:100%; height:100%; border-radius:50%;
-  border:2px solid rgba(255,255,255,0.8);
-}
-.glow {
-  position:absolute; left:50%; top:64px; transform:translateX(-50%);
-  width:220px; height:220px; border-radius:50%;
-  filter:blur(34px); z-index:-1;
-  background: radial-gradient(circle at 25% 25%,
-    rgba(167,199,231,0.25),
-    rgba(210,185,222,0.15),
-    rgba(198,240,225,0.08));
-}
-h1 { color: var(--brown); font-size: 2.5rem; margin: 18px 0 6px; }
-h2 { color: var(--brown); font-weight: 500; margin: 0 0 18px; }
-p.lead { max-width: 900px; margin: 0 auto 12px; color: #555; font-size: 1.05rem; }
-
-/* ✨ Buttons */
-.btn {
-  display:inline-block; padding:12px 22px;
-  background: var(--brown); color:#fff;
-  border:none; border-radius:10px; font-weight:600;
-  text-decoration:none; box-shadow:0 6px 18px rgba(0,0,0,0.06);
-  transition: transform .18s, background .18s; cursor:pointer;
-}
-.btn:hover { transform:translateY(-3px); background:#3e241e; }
-
-/* 🧱 Cards & Services */
-ul.services {
-  list-style:none; padding:0;
-  display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
-  gap:18px; margin-top:18px;
-}
-.card {
-  background:#fff; border-radius:12px; padding:18px;
-  box-shadow:0 8px 22px rgba(0,0,0,0.06);
-  text-align:left; transition:transform .25s ease, box-shadow .25s ease;
-}
-.card:hover { transform:translateY(-4px); box-shadow:0 10px 28px rgba(0,0,0,0.1); }
-.card h3 { color:var(--brown); margin:0 0 8px; }
-.card p { color:#444; font-size:.92rem; margin:0; }
-
-/* 🧭 Modal Base */
-.modal-overlay {
-  display:none; position:fixed; inset:0;
-  background:rgba(0,0,0,0.5);
-  z-index:2000; justify-content:center; align-items:center;
-  padding:24px;
-}
-.modal-overlay.show { display:flex; animation:modalFade .25s ease-in-out; }
-@keyframes modalFade { from{opacity:0;} to{opacity:1;} }
-
-.modal-content {
-  width:100%; max-width:540px; background:#fff;
-  border-radius:14px; padding:28px;
-  box-shadow:0 20px 60px rgba(0,0,0,0.25);
-  color:var(--brown); position:relative;
-}
-.modal-content h2 { margin:0 0 8px; font-size:1.5rem; }
-.modal-content p { margin:0 0 16px; color:#666; }
-.close-btn {
-  position:absolute; right:16px; top:12px;
-  font-size:22px; color:var(--brown); cursor:pointer;
-}
-
-/* 🚀 Walkthrough Modal Enhancement */
-#walkModal.modal-overlay {
-  background:rgba(0,0,0,0.55);
-  backdrop-filter:blur(6px);
-}
-#walkModal .modal-content {
-  box-shadow:0 0 40px rgba(167,199,231,0.45);
-  background:#fffaf7;
-  text-align:center;
-  overflow-y:auto;
-  max-height:90vh;
-}
-#walkModal .modal-content div[style*="margin-bottom:24px"] {
-  margin-bottom:40px !important;
-  display:block;
-}
-#walkModal .modal-content img {
-  display:block; width:100%; height:auto;
-  margin:0 auto 20px auto;
-  border-radius:12px;
-}
-
-/* 🧩 Center alignment for See It in Action */
-#walkthrough,
-#walkthrough h2,
-#walkthrough p,
-#walkthrough div,
-#walkthrough button {
-  text-align: center !important;
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-}
-
-/* 🎬 See It in Action image fix */
-.demo-box {
-  text-align: center;
-  margin: 2rem auto;
-  width: 100%;
-  max-width: 100%;
-  overflow: hidden;
-}
-
-.demo-box img {
-  width: 100%;
-  max-width: 700px; /* Adjust if you want it smaller */
-  height: auto;
-  display: block;
-  margin: 0 auto 1.2rem auto;
-  border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-}
-
-/* 📱 Mobile adjustments */
-@media (max-width: 768px) {
-  #walkthrough {
-    padding: 1.5rem 1rem;
-  }
-
-  #walkthrough h2 {
-    font-size: 1.3rem;
-    margin-bottom: 0.5rem;
-  }
-
-  #walkthrough p {
-    font-size: 0.95rem;
-    line-height: 1.5;
-    margin-bottom: 1rem;
-  }
-
-  .demo-box img {
-    max-width: 95%;
-    margin: 0 auto 1rem auto; /* less space below the image */
-  }
-
-  #walkthrough button {
-    font-size: 0.9rem;
-    padding: 0.8rem 1.5rem;
-  }
-}
-
-/* 📱 Mobile Responsiveness */
-@media (max-width:768px) {
-  #walkModal.modal-overlay {
-    align-items:flex-start !important;
-    overflow-y:scroll !important;
-    padding-top:40px !important;
-    padding-bottom:40px !important;
-  }
-  #walkModal .modal-content {
-    width:94% !important;
-    max-height:none !important;
-    margin:0 auto !important;
-  }
-}
-
-/* 💬 Utility */
-.center { text-align: center; }
-.small { font-size: 14px; color: #666; }
-
-/* 💙 Center Alignment Fixes */
-section, section h2, section p {
-  text-align: center !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-}
-
-#walkthrough button {
-  display: block;
-  margin: 0 auto;
-}
-
-#walkthrough div {
-  text-align: center;
-}
-
-/* 💌 Contact Form Layout Fix */
-#contactForm {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-#contactForm label {
-  display: block;
-  font-weight: 600;
-  text-align: left;
-}
-
-#contactForm input,
-#contactForm textarea {
-  width: 100%;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  padding: 10px;
-}
-
-#contactForm button {
-  margin-top: 8px;
-  align-self: center;
-  width: 200px;
-}
-
-#contact {
-  max-width: 680px;
-  margin: 0 auto;
-  text-align: center;
-}
-
-/* 💡 Fix: What We Do Best - uniform card images */
-ul.services .card img {
-  width: 100%;
-  height: 180px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  display: block;
-}
-
-/* Center grid properly and keep balance */
-ul.services {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 20px;
-  justify-items: center;
-  align-items: start;
-}
-
-/* Responsive adjustment for mobile view */
-@media (max-width: 768px) {
-  ul.services .card img {
-    height: 160px;
-  }
-}
-
-/* 🎯 PROJECT MODAL STYLING */
-.modal-overlay {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.4);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-  transition: opacity 0.3s ease;
-}
-
-.modal-overlay.show {
-  display: flex;
-  animation: fadeIn 0.3s ease forwards;
-}
-
-.modal-content {
+/* 🧩 FINAL FIX — Start a Project Modal Alignment & Sizing */
+#projectModal .modal-content {
   background: var(--cream, #fffefb);
-  padding: 2rem 2.5rem;
-  border-radius: 16px;
-  max-width: 480px;
-  width: 90%;
+  padding: 1.8rem 2rem;
+  border-radius: 14px;
+  max-width: 420px;      /* ✅ smaller, cleaner size */
+  width: 100%;
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
   position: relative;
   animation: slideUp 0.4s ease;
+  text-align: left !important; /* force base left alignment */
 }
 
-.close-btn {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: none;
-  border: none;
-  font-size: 1.5rem;
-  color: var(--brown, #4E342E);
-  cursor: pointer;
-  transition: transform 0.2s ease;
-}
-.close-btn:hover { transform: scale(1.2); }
-
-/* 💬 Modal Form Layout */
-.modal-content h2 {
-  color: var(--brown, #4E342E);
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 0.5rem;
+/* 🧭 Keep only the heading centered */
+#projectModal .modal-content h2,
+#projectModal .modal-content p {
+  text-align: center !important;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.modal-content p {
-  color: var(--text, #333);
-  text-align: center;
-  font-size: 0.95rem;
-  margin-bottom: 1.2rem;
+/* 🧾 Align the form fields + checkboxes left */
+#projectModal form,
+#projectModal input,
+#projectModal textarea,
+#projectModal .checkbox-group,
+#projectModal .checkbox-group label {
+  text-align: left !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
 }
 
-.modal-content form {
+/* ✅ Form structure */
+#projectModal form {
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
 }
 
-.modal-content input,
-.modal-content textarea {
+#projectModal input,
+#projectModal textarea {
   width: 100%;
-  padding: 0.75rem;
+  padding: 0.7rem 0.8rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  font-family: 'Poppins', sans-serif;
+  background: #fff;
+}
+
+#projectModal textarea {
+  resize: vertical;
+}
+
+/* ✅ Checkbox group layout */
+#projectModal .checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+#projectModal .checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text, #333);
+}
+
+/* ✅ Submit button */
+#projectModal .btn {
+  width: 100%;
+  font-size: 1rem;
+  padding: 0.9rem;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+  background: var(--brown, #4E342E);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+#projectModal .btn:hover { background: #3b241f; }
+
+/* 📱 Mobile Optimization */
+@media (max-width: 600px) {
+  #projectModal .modal-content {
+    width: 90%;
+    max-width: 340px;  /* ✅ tighter on phones */
+    padding: 1.5rem;
+  }
+
+  #projectModal .checkbox-group label {
+    font-size: 0.9rem;
+  }
+}
+/* 🎯 FINAL FIX — Compact & Centered Start a Project Modal */
+#projectModal.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.5);
+  backdrop-filter: blur(6px);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+#projectModal.modal-overlay.show {
+  display: flex;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+/* 🪄 Modal Box */
+#projectModal .modal-content {
+  background: var(--cream, #fffefb);
+  border-radius: 14px;
+  padding: 1.8rem 2rem;
+  width: 90%;
+  max-width: 360px;   /* ✅ smaller, cleaner form box */
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  animation: slideUp 0.4s ease;
+  position: relative;
+  text-align: left !important;
+  margin: 0 auto;     /* ✅ centers horizontally */
+}
+
+/* 🪶 Header */
+#projectModal .modal-content h2,
+#projectModal .modal-content p {
+  text-align: center !important;
+  margin-bottom: 0.8rem;
+  color: var(--brown, #4E342E);
+}
+
+/* 🧾 Form */
+#projectModal form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+#projectModal input,
+#projectModal textarea {
+  width: 100%;
+  padding: 0.7rem;
   border: 1px solid #ddd;
   border-radius: 8px;
   font-family: 'Poppins', sans-serif;
   font-size: 0.95rem;
+  background: #fff;
 }
 
-.modal-content textarea {
+#projectModal textarea {
   resize: vertical;
 }
 
-.checkbox-group {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.4rem 1rem;
-  font-size: 0.9rem;
+/* ✅ Checkbox Group */
+#projectModal .checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-align: left;
 }
 
-.modal-content .btn {
-  margin-top: 0.5rem;
+#projectModal .checkbox-group label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.9rem;
+  color: var(--text, #333);
+}
+
+/* ✅ Button */
+#projectModal .btn {
   width: 100%;
   font-size: 1rem;
-  background: var(--brown, #4E342E);
-  color: white;
-  padding: 0.9rem;
-  border: none;
+  padding: 0.8rem;
   border-radius: 8px;
+  margin-top: 0.5rem;
+  background: var(--brown, #4E342E);
+  color: #fff;
+  border: none;
   cursor: pointer;
-  transition: background 0.3s;
+  transition: background 0.3s ease;
 }
 
-.modal-content .btn:hover {
+#projectModal .btn:hover {
   background: #3b241f;
 }
 
-/* 📱 Mobile Tweaks */
-@media (max-width: 600px) {
-  .modal-content {
-    padding: 1.5rem;
-    width: 90%;
-    max-width: 360px;
-  }
-
-  .checkbox-group {
-    grid-template-columns: 1fr;
-    text-align: left;
-  }
-
-  .modal-content p {
-    font-size: 0.9rem;
-  }
-
-  .modal-content .btn {
-    font-size: 0.95rem;
-  }
+/* ✖ Close Button */
+#projectModal .close-btn {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.9rem;
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  color: var(--brown, #4E342E);
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
+#projectModal .close-btn:hover { transform: scale(1.2); }
 
-/* ✨ Animations */
+/* ✨ Animation */
 @keyframes fadeIn {
   from { opacity: 0; }
   to { opacity: 1; }
@@ -424,60 +215,11 @@ ul.services {
   to { transform: translateY(0); opacity: 1; }
 }
 
-/* ✅ Checkbox and form alignment override */
-.modal-content,
-.modal-content form,
-.checkbox-group,
-.checkbox-group label {
-  text-align: left !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-}
-
-.checkbox-group {
-  display: flex !important;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 0.6rem;
-}
-
-.checkbox-group label {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.95rem;
-  width: 100%;
-  line-height: 1.4;
-}
-
-/* 🚨 Force Left Alignment inside Start a Project modal */
-#projectModal .modal-content,
-#projectModal .modal-content form,
-#projectModal .modal-content label,
-#projectModal .modal-content input,
-#projectModal .modal-content textarea,
-#projectModal .checkbox-group,
-#projectModal .checkbox-group label {
-  text-align: left !important;
-  margin-left: 0 !important;
-  margin-right: 0 !important;
-  align-items: flex-start !important;
-  justify-content: flex-start !important;
-}
-
-/* Make checkbox group stack cleanly */
-#projectModal .checkbox-group {
-  display: flex !important;
-  flex-direction: column !important;
-  gap: 0.6rem;
-}
-
-#projectModal .checkbox-group label {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-size: 0.95rem;
-  line-height: 1.4;
-  width: 100%;
+/* 📱 Mobile Tweaks */
+@media (max-width: 600px) {
+  #projectModal .modal-content {
+    width: 90%;
+    max-width: 320px;  /* ✅ slightly smaller on phones */
+    padding: 1.5rem;
+  }
 }
