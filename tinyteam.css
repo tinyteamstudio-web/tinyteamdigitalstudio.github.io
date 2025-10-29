@@ -289,3 +289,138 @@ ul.services {
   }
 }
 
+/* 🎯 PROJECT MODAL STYLING */
+.modal-overlay {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.4);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.3s ease;
+}
+
+.modal-overlay.show {
+  display: flex;
+  animation: fadeIn 0.3s ease forwards;
+}
+
+.modal-content {
+  background: var(--cream, #fffefb);
+  padding: 2rem 2.5rem;
+  border-radius: 16px;
+  max-width: 480px;
+  width: 90%;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  position: relative;
+  animation: slideUp 0.4s ease;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--brown, #4E342E);
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+.close-btn:hover { transform: scale(1.2); }
+
+/* 💬 Modal Form Layout */
+.modal-content h2 {
+  color: var(--brown, #4E342E);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.modal-content p {
+  color: var(--text, #333);
+  text-align: center;
+  font-size: 0.95rem;
+  margin-bottom: 1.2rem;
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.modal-content input,
+.modal-content textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+}
+
+.modal-content textarea {
+  resize: vertical;
+}
+
+.checkbox-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.4rem 1rem;
+  font-size: 0.9rem;
+}
+
+.modal-content .btn {
+  margin-top: 0.5rem;
+  width: 100%;
+  font-size: 1rem;
+  background: var(--brown, #4E342E);
+  color: white;
+  padding: 0.9rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.modal-content .btn:hover {
+  background: #3b241f;
+}
+
+/* 📱 Mobile Tweaks */
+@media (max-width: 600px) {
+  .modal-content {
+    padding: 1.5rem;
+    width: 90%;
+    max-width: 360px;
+  }
+
+  .checkbox-group {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+  .modal-content p {
+    font-size: 0.9rem;
+  }
+
+  .modal-content .btn {
+    font-size: 0.95rem;
+  }
+}
+
+/* ✨ Animations */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(30px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
