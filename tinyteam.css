@@ -451,3 +451,40 @@ ul.services {
   line-height: 1.4;
 }
 
+/* 🚨 Final override: force left alignment inside modal form */
+#projectModal .modal-content,
+#projectModal .modal-content form,
+#projectModal .checkbox-group,
+#projectModal .checkbox-group label,
+#projectModal .modal-content input,
+#projectModal .modal-content textarea {
+  text-align: left !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+#projectModal .modal-content form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+#projectModal .checkbox-group {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  gap: 0.6rem;
+  width: 100%;
+}
+
+#projectModal .checkbox-group label {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 0.5rem;
+  width: 100%;
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: var(--text, #333);
+}
