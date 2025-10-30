@@ -108,7 +108,7 @@
     </section>
   </main>
 
-  <!-- FOOTER -->
+    <!-- FOOTER -->
   <footer>
     © 2025 Tiny Team Digital Studio • Designed by 
     <a href="https://tinyteamdigitalstudio.github.io" target="_blank">Tiny Team Digital Studio</a>
@@ -116,48 +116,39 @@
     <a href="https://svpfunneldesignservices.com" target="_blank">SVP Funnels</a>
   </footer>
 
+  <!-- ✅ FINAL SCRIPT BLOCK -->
   <script>
-// 🌙 Fade-in on scroll
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) entry.target.classList.add('visible');
+  // 🌙 Fade-in on scroll
+  const observer = new IntersectionObserver(entries=>{
+    entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});
+  },{threshold:0.2});
+  document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
+
+  // 🌙 Walkthrough modal
+  const walkModal=document.getElementById('walkModal');
+  document.getElementById('openWalkthrough').onclick=()=>walkModal.classList.add('show');
+  walkModal.querySelector('.close-btn').onclick=()=>walkModal.classList.remove('show');
+  walkModal.onclick=e=>{if(e.target===walkModal)walkModal.classList.remove('show');};
+
+  // 🌙 Image zoom
+  document.querySelectorAll('.card img').forEach(img=>{
+    img.addEventListener('click',()=>{
+      const overlay=document.createElement('div');
+      overlay.className='zoom-overlay';
+      overlay.innerHTML=`<img src="${img.src}" alt="${img.alt}">`;
+      document.body.appendChild(overlay);
+      overlay.addEventListener('click',()=>overlay.remove());
+    });
   });
-}, {threshold:0.2});
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-// 🌙 WALKTHROUGH MODAL
-const walkModal = document.getElementById('walkModal');
-document.getElementById('openWalkthrough').onclick = ()=>walkModal.classList.add('show');
-walkModal.querySelector('.close-btn').onclick = ()=>walkModal.classList.remove('show');
-walkModal.onclick = e=>{if(e.target===walkModal)walkModal.classList.remove('show');};
-
-// 🌙 IMAGE ZOOM (Lightbox)
-document.querySelectorAll('.card img').forEach(img=>{
-  img.addEventListener('click', ()=>{
-    const overlay = document.createElement('div');
-    overlay.className = 'zoom-overlay';
-    overlay.innerHTML = `<img src="${img.src}" alt="${img.alt}">`;
-    document.body.appendChild(overlay);
-    overlay.addEventListener('click', ()=>overlay.remove());
+  // 🌙 Form redirect to thankyou.html
+  document.getElementById('projectForm').addEventListener('submit',function(e){
+    e.preventDefault(); // stop reload
+    const form=e.target;
+    const data=new FormData(form);
+    navigator.sendBeacon(form.action, data); // send silently even on page unload
+    setTimeout(()=>{ window.location.href='thankyou.html'; },1000);
   });
-});
-
-// 🌙 FORM REDIRECT TO THANKYOU
-document.getElementById('projectForm').addEventListener('submit', function(e) {
-  e.preventDefault(); // Stop default reload
-  const form = e.target;
-  const data = new FormData(form);
-
-  fetch(form.action, {
-    method: 'POST',
-    mode: 'no-cors',
-    body: data
-  })
-  .then(() => {
-    window.location.href = 'thankyou.html';
-  })
-  .catch(() => {
-    window.location.href = 'thankyou.html';
-  });
-});
-</script>
+  </script>
+</body>
+</html>
