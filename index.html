@@ -77,7 +77,8 @@
     <section id="contact">
       <h2>Let’s Build Something Amazing Together</h2>
       <p>We’d love to collaborate! Drop a message below and let’s make it happen.</p>
-      <form id="projectForm" action="https://docs.google.com/forms/d/e/1FAIpQLSforN4hmDAUwmZAbVplGEr7tjOeHZ9H_dr-uDmwJ5P-T3m0JQ/formResponse" method="POST" target="_blank">
+       <form id="projectForm" action="https://docs.google.com/forms/d/e/1FAIpQLSforN4hmDAUwmZAbVplGEr7tjOeHZ9H_dr-uDmwJ5P-T3m0JQ/formResponse" method="POST">
+
         <input type="text" name="entry.1513897006" placeholder="Your Name" required>
         <input type="email" name="entry.1673846018" placeholder="Your Email" required>
         <div class="checkbox-group">
@@ -175,3 +176,20 @@ document.querySelectorAll('.card img').forEach(img=>{
 
 </body>
 </html>
+<script>
+// FORM REDIRECT TO THANKYOU
+document.getElementById('projectForm').addEventListener('submit', function(e) {
+  e.preventDefault(); // Prevent default reload
+  const form = e.target;
+  const data = new FormData(form);
+
+  fetch(form.action, {
+    method: 'POST',
+    mode: 'no-cors', // prevents CORS blocking
+    body: data
+  }).finally(() => {
+    // After submission, redirect to thankyou page
+    window.location.href = 'thankyou.html';
+  });
+});
+</script>
