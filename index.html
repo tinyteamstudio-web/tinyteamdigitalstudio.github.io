@@ -117,23 +117,7 @@
   </footer>
 
   <script>
-    // Fade-in on scroll
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
-    }, {threshold:0.2});
-    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
-
-    // Modals
-    const modal = document.getElementById('walkModal');
-    document.getElementById('openWalkthrough').onclick = ()=>modal.classList.add('show');
-    modal.querySelector('.close-btn').onclick = ()=>modal.classList.remove('show');
-    modal.onclick = e=>{if(e.target===modal)modal.classList.remove('show');};
-  </script>
-
-  <script>
-// Fade-in on scroll
+// 🌙 Fade-in on scroll
 const observer = new IntersectionObserver(entries => {
   entries.forEach(entry => {
     if (entry.isIntersecting) entry.target.classList.add('visible');
@@ -141,28 +125,13 @@ const observer = new IntersectionObserver(entries => {
 }, {threshold:0.2});
 document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-// --- PROJECT MODAL ---
-const projectModal = document.getElementById('projectModal');
-const startBtns = document.querySelectorAll('#startProjectBtn, #startProjectFromWalkthrough');
-startBtns.forEach(btn => btn.addEventListener('click', () => projectModal.classList.add('show')));
-projectModal.querySelector('.close-btn').onclick = ()=>projectModal.classList.remove('show');
-projectModal.onclick = e=>{if(e.target===projectModal)projectModal.classList.remove('show');};
-
-// FORM REDIRECT TO THANKYOU
-document.getElementById('projectForm').addEventListener('submit', function(e) {
-  // allow submission to Google Form but redirect after 1 second
-  setTimeout(() => {
-    window.location.href = 'thankyou.html';
-  }, 1000);
-});
-
-// --- WALKTHROUGH MODAL ---
+// 🌙 WALKTHROUGH MODAL
 const walkModal = document.getElementById('walkModal');
 document.getElementById('openWalkthrough').onclick = ()=>walkModal.classList.add('show');
 walkModal.querySelector('.close-btn').onclick = ()=>walkModal.classList.remove('show');
 walkModal.onclick = e=>{if(e.target===walkModal)walkModal.classList.remove('show');};
 
-// --- IMAGE ZOOM (Lightbox effect) ---
+// 🌙 IMAGE ZOOM (Lightbox)
 document.querySelectorAll('.card img').forEach(img=>{
   img.addEventListener('click', ()=>{
     const overlay = document.createElement('div');
@@ -172,23 +141,22 @@ document.querySelectorAll('.card img').forEach(img=>{
     overlay.addEventListener('click', ()=>overlay.remove());
   });
 });
-</script>
 
-</body>
-</html>
-<script>
-// FORM REDIRECT TO THANKYOU
+// 🌙 FORM REDIRECT TO THANKYOU
 document.getElementById('projectForm').addEventListener('submit', function(e) {
-  e.preventDefault(); // Prevent default reload
+  e.preventDefault(); // Stop default reload
   const form = e.target;
   const data = new FormData(form);
 
   fetch(form.action, {
     method: 'POST',
-    mode: 'no-cors', // prevents CORS blocking
+    mode: 'no-cors',
     body: data
-  }).finally(() => {
-    // After submission, redirect to thankyou page
+  })
+  .then(() => {
+    window.location.href = 'thankyou.html';
+  })
+  .catch(() => {
     window.location.href = 'thankyou.html';
   });
 });
