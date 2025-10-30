@@ -118,3 +118,13 @@ footer a:hover{text-decoration:underline;color:var(--blue)}
  h2{font-size:1.1rem}
  .card img{height:140px}
 }
+
+@media (max-width: 768px) {
+  header { padding-top: 80px; }
+  header .logo-wrap img { width: 100px; }
+  .services { grid-template-columns: 1fr; gap: 20px; }
+  .card img { height: auto; }
+  .modal-content { width: 90%; max-height: 80vh; padding: 20px; }
+  .demo-box { padding: 16px; }
+  #contact form { width: 90%; }
+}
