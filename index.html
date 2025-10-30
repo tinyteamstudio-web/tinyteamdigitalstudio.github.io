@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <!-- Unified Brand Styles -->
+  <!-- Styles -->
   <link rel="stylesheet" href="tinyteam.css">
 </head>
 
@@ -23,12 +23,11 @@
 
   <!-- HEADER -->
   <header>
-    <div class="glow"></div>
-    <div class="logo-wrap"><img src="logo.png" alt="Tiny Team Digital Studio logo"></div>
-    <h1>Tiny Team Digital Studio</h1>
-    <h2>Tiny team. Big results.</h2>
-    <p class="lead">We craft smart, modern digital systems — from funnels and automation to YouTube growth — helping you scale effortlessly with style and strategy.</p>
-    <button id="startProjectBtn" class="btn">Start a Project</button>
+    <div class="logo-wrap fade-in"><img src="logo.png" alt="Tiny Team Digital Studio logo"></div>
+    <h1 class="fade-in">Tiny Team Digital Studio</h1>
+    <h2 class="fade-in">Tiny team. Big results.</h2>
+    <p class="lead fade-in">We craft smart, modern digital systems — from funnels and automation to YouTube growth — helping you scale effortlessly with style and strategy.</p>
+    <button id="startProjectBtn" class="btn fade-in">Start a Project</button>
   </header>
 
   <!-- MAIN -->
@@ -38,10 +37,10 @@
       <h2>What We Do Best</h2>
       <p>Transforming your ideas into digital experiences that work, wow, and win.</p>
       <ul class="services">
-        <li><div class="card"><img src="funnel.jpg" alt="Funnel Design"><h3>Funnel Design & Automation</h3><p>From clicks to conversions — we build funnels that automate your growth and free your time.</p></div></li>
-        <li><div class="card"><img src="brand.jpg" alt="Brand Design"><h3>Brand & Digital Identity</h3><p>Design that defines you. We craft visual stories that your audience remembers and trusts.</p></div></li>
-        <li><div class="card"><img src="workflow1.jpg" alt="Workflow"><h3>Workflow Optimization</h3><p>Streamline your process with automations that make your business run smoother than ever.</p></div></li>
-        <li><div class="card"><img src="youtube.jpg" alt="YouTube Systems"><h3>Faceless YouTube Systems</h3><p>Grow on autopilot. We design faceless video systems that boost engagement and brand visibility.</p></div></li>
+        <li><div class="card fade-in"><img src="funnel.jpg" alt="Funnel Design"><h3>Funnel Design & Automation</h3><p>From clicks to conversions — we build funnels that automate your growth and free your time.</p></div></li>
+        <li><div class="card fade-in"><img src="brand.jpg" alt="Brand Design"><h3>Brand & Digital Identity</h3><p>Design that defines you. We craft visual stories that your audience remembers and trusts.</p></div></li>
+        <li><div class="card fade-in"><img src="workflow1.jpg" alt="Workflow"><h3>Workflow Optimization</h3><p>Streamline your process with automations that make your business run smoother than ever.</p></div></li>
+        <li><div class="card fade-in"><img src="youtube.jpg" alt="YouTube Systems"><h3>Faceless YouTube Systems</h3><p>Grow on autopilot. We design faceless video systems that boost engagement and brand visibility.</p></div></li>
       </ul>
     </section>
 
@@ -49,8 +48,7 @@
     <section id="walkthrough">
       <h2>See It in Action</h2>
       <p>Experience how a funnel really works — from first click to automation.<br>This short demo shows how our templates bring your brand to life.</p>
-
-      <div class="demo-box">
+      <div class="demo-box fade-in">
         <img src="funnel-demo.png" alt="Funnel preview">
         <button id="openWalkthrough" class="btn">🚀 Walk Me Through (I’m Excited!)</button>
       </div>
@@ -63,31 +61,11 @@
         <h2>🚀 Funnel Walkthrough</h2>
         <p>See how your funnel transforms simple clicks into real client connections 👇</p>
 
-        <!-- Step 1 -->
-        <div class="walk-card">
-          <img src="templates/landingpage.png" alt="Landing Page preview">
-          <strong>Step 1 – Landing Page</strong>
-          <p>This is where your visitors first meet you — clean, clear, and designed to highlight your offer with a confident <strong>call-to-action</strong>.</p>
-        </div>
+        <div class="walk-card"><img src="templates/landingpage.png" alt="Landing Page preview"><strong>Step 1 – Landing Page</strong><p>This is where your visitors first meet you — clean, clear, and designed to highlight your offer with a confident call-to-action.</p></div>
+        <div class="walk-card"><img src="templates/automation.png" alt="Automation setup preview"><strong>Step 2 – Automation</strong><p>Once they fill out your form, your system takes over: sending confirmation emails, follow-ups, or booking links — all automatically.</p></div>
+        <div class="walk-card"><img src="templates/thankyou.png" alt="Thank You page preview"><strong>Step 3 – Thank You Page</strong><p>Every new lead gets celebrated 🎉 and guided to the next step — booking, paying, or joining your community.</p></div>
 
-        <!-- Step 2 -->
-        <div class="walk-card">
-          <img src="templates/automation.png" alt="Automation setup preview">
-          <strong>Step 2 – Automation</strong>
-          <p>Once they fill out your form or click a button, your system takes over: sending <strong>confirmation emails</strong>, follow-ups, or booking links — <em>all automatically</em>.</p>
-        </div>
-
-        <!-- Step 3 -->
-        <div class="walk-card">
-          <img src="templates/thankyou.png" alt="Thank You page preview">
-          <strong>Step 3 – Thank You Page</strong>
-          <p>Every new lead gets celebrated 🎉 and guided to the next step — whether that’s booking a call, paying, or joining your community.</p>
-        </div>
-
-        <p style="color:#666; text-align:center; margin:16px 0;">
-          Want to see how it’s built? Download the free template or start your own funnel below.
-        </p>
-
+        <p style="color:#666; text-align:center; margin:16px 0;">Want to see how it’s built? Download the free template or start your own funnel below.</p>
         <div class="walk-actions">
           <a href="templates/funnel-template.zip" class="btn" download>⬇️ Get Free Template</a>
           <button class="btn" id="startProjectFromWalkthrough">Start My Project</button>
@@ -99,29 +77,6 @@
     <section id="contact">
       <h2>Let’s Build Something Amazing Together</h2>
       <p>We’d love to collaborate! Drop a message below and let’s make it happen.</p>
-      <form id="contactForm">
-        <label for="name">Name</label>
-        <input id="name" name="name" required placeholder="Your name">
-        <label for="email">Email</label>
-        <input id="email" name="email" type="email" required placeholder="you@example.com">
-        <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" required placeholder="Tell us about your project..."></textarea>
-        <button type="submit" class="btn">Send Message</button>
-      </form>
-      <p>Or email us directly: 
-        <a href="mailto:smallsteps@tinyteamstudio.online" style="color:var(--brown);font-weight:600;">smallsteps@tinyteamstudio.online</a>
-      </p>
-    </section>
-  </main>
-
-  <footer>© 2025 Tiny Team Digital Studio • Designed by Luzien Joseph</footer>
-
-  <!-- PROJECT MODAL -->
-  <div id="projectModal" class="modal-overlay" aria-hidden="true" role="dialog" aria-modal="true">
-    <div class="modal-content">
-      <button class="close-btn" aria-label="Close modal">&times;</button>
-      <h2>Start a Project</h2>
-      <p>Quick details help us estimate scope — pick services and leave a short note.</p>
       <form id="projectForm" action="https://docs.google.com/forms/d/e/1FAIpQLSforN4hmDAUwmZAbVplGEr7tjOeHZ9H_dr-uDmwJ5P-T3m0JQ/formResponse" method="POST" target="_blank">
         <input type="text" name="entry.1513897006" placeholder="Your Name" required>
         <input type="email" name="entry.1673846018" placeholder="Your Email" required>
@@ -132,32 +87,48 @@
           <label><input type="checkbox" name="entry.1063306987" value="Faceless YouTube Systems"> Faceless YouTube Systems</label>
         </div>
         <textarea name="entry.9999999999" rows="4" placeholder="Tell us about your project..."></textarea>
-        <button type="submit" class="btn">Submit</button>
+        <button type="submit" class="btn">Send Message</button>
       </form>
-    </div>
-  </div>
+      <p>Or email us directly: <a href="mailto:smallsteps@tinyteamstudio.online" style="color:var(--brown);font-weight:600;">smallsteps@tinyteamstudio.online</a></p>
+    </section>
 
-  <!-- JS -->
+    <!-- SOCIAL LINKS -->
+    <section id="social">
+      <h3>Connect with SVP Funnels</h3>
+      <div class="social-links">
+        <a href="mailto:svpfunnels@svpfunneldesignservices.com" target="_blank">📧</a>
+        <a href="https://instagram.com/svpfunnels" target="_blank">📸</a>
+        <a href="https://youtube.com/@SVPfunnels" target="_blank">📺</a>
+        <a href="https://www.linkedin.com/in/sherryl-penaflor-0b7a15353/" target="_blank">💼</a>
+        <a href="https://tiktok.com/@svpfunnels" target="_blank">🎵</a>
+        <a href="https://ph.pinterest.com/svpfunneldesignservices/" target="_blank">📌</a>
+        <a href="https://svpfunneldesignservices.com/home" target="_blank">🌐</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    © 2025 Tiny Team Digital Studio • Designed by 
+    <a href="https://tinyteamdigitalstudio.github.io" target="_blank">Tiny Team Digital Studio</a>
+    &nbsp;|&nbsp; Powered by 
+    <a href="https://svpfunneldesignservices.com" target="_blank">SVP Funnels</a>
+  </footer>
+
   <script>
-    // Project Modal
-    (() => {
-      const modal = document.getElementById('projectModal');
-      const openBtn = document.getElementById('startProjectBtn');
-      const closeBtn = modal.querySelector('.close-btn');
-      openBtn.addEventListener('click', () => modal.classList.add('show'));
-      closeBtn.addEventListener('click', () => modal.classList.remove('show'));
-      modal.addEventListener('click', e => { if(e.target === modal) modal.classList.remove('show'); });
-    })();
+    // Fade-in on scroll
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('visible');
+      });
+    }, {threshold:0.2});
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 
-    // Walkthrough Modal
-    (() => {
-      const walkModal = document.getElementById('walkModal');
-      const openBtn = document.getElementById('openWalkthrough');
-      const closeBtn = walkModal.querySelector('.close-btn');
-      openBtn.addEventListener('click', () => walkModal.classList.add('show'));
-      closeBtn.addEventListener('click', () => walkModal.classList.remove('show'));
-      walkModal.addEventListener('click', e => { if(e.target === walkModal) walkModal.classList.remove('show'); });
-    })();
+    // Modals
+    const modal = document.getElementById('walkModal');
+    document.getElementById('openWalkthrough').onclick = ()=>modal.classList.add('show');
+    modal.querySelector('.close-btn').onclick = ()=>modal.classList.remove('show');
+    modal.onclick = e=>{if(e.target===modal)modal.classList.remove('show');};
   </script>
 </body>
 </html>
