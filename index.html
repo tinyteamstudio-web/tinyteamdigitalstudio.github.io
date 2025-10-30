@@ -73,25 +73,40 @@
       </div>
     </div>
 
-    <!-- CONTACT -->
-    <section id="contact">
-      <h2>Let’s Build Something Amazing Together</h2>
-      <p>We’d love to collaborate! Drop a message below and let’s make it happen.</p>
-       <form id="projectForm" action="https://docs.google.com/forms/d/e/1FAIpQLSforN4hmDAUwmZAbVplGEr7tjOeHZ9H_dr-uDmwJ5P-T3m0JQ/formResponse" method="POST">
+   <!-- CONTACT -->
+<section id="contact">
+  <h2>Let’s Build Something Amazing Together</h2>
+  <p>We’d love to collaborate! Drop a message below and let’s make it happen.</p>
 
-        <input type="text" name="entry.1513897006" placeholder="Your Name" required>
-        <input type="email" name="entry.1673846018" placeholder="Your Email" required>
-        <div class="checkbox-group">
-          <label><input type="checkbox" name="entry.1063306987" value="Funnel Design & Automation"> Funnel Design & Automation</label>
-          <label><input type="checkbox" name="entry.1063306987" value="Brand & Digital Identity"> Brand & Digital Identity</label>
-          <label><input type="checkbox" name="entry.1063306987" value="Workflow Optimization"> Workflow Optimization</label>
-          <label><input type="checkbox" name="entry.1063306987" value="Faceless YouTube Systems"> Faceless YouTube Systems</label>
-        </div>
-        <textarea name="entry.9999999999" rows="4" placeholder="Tell us about your project..."></textarea>
-        <button type="submit" class="btn">Send Message</button>
-      </form>
-      <p>Or email us directly: <a href="mailto:smallsteps@tinyteamstudio.online" style="color:var(--brown);font-weight:600;">smallsteps@tinyteamstudio.online</a></p>
-    </section>
+  <!-- FORM -->
+  <form id="projectForm"
+        action="https://docs.google.com/forms/d/e/1FAIpQLSforN4hmDAUwmZAbVplGEr7tjOeHZ9H_dr-uDmwJ5P-T3m0JQ/formResponse"
+        method="POST"
+        target="hidden_iframe"
+        onsubmit="showThankyou()">
+
+    <input type="text" name="entry.1513897006" placeholder="Your Name" required>
+    <input type="email" name="entry.1673846018" placeholder="Your Email" required>
+
+    <div class="checkbox-group">
+      <label><input type="checkbox" name="entry.1063306987" value="Funnel Design & Automation"> Funnel Design & Automation</label>
+      <label><input type="checkbox" name="entry.1063306987" value="Brand & Digital Identity"> Brand & Digital Identity</label>
+      <label><input type="checkbox" name="entry.1063306987" value="Workflow Optimization"> Workflow Optimization</label>
+      <label><input type="checkbox" name="entry.1063306987" value="Faceless YouTube Systems"> Faceless YouTube Systems</label>
+    </div>
+
+    <textarea name="entry.9999999999" rows="4" placeholder="Tell us about your project..."></textarea>
+    <button type="submit" class="btn">Send Message</button>
+  </form>
+
+  <!-- Hidden iframe to handle submission silently -->
+  <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;"></iframe>
+
+  <p>Or email us directly:
+    <a href="mailto:smallsteps@tinyteamstudio.online" style="color:var(--brown);font-weight:600;">smallsteps@tinyteamstudio.online</a>
+  </p>
+</section>
+
 
     <!-- SOCIAL LINKS -->
     <section id="social">
