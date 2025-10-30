@@ -82,8 +82,7 @@
   <form id="projectForm"
         action="https://docs.google.com/forms/d/e/1FAIpQLSforN4hmDAUwmZAbVplGEr7tjOeHZ9H_dr-uDmwJ5P-T3m0JQ/formResponse"
         method="POST"
-        target="hidden_iframe"
-        onsubmit="showThankyou()">
+        target="hidden_iframe">
 
     <input type="text" name="entry.1513897006" placeholder="Your Name" required>
     <input type="email" name="entry.1673846018" placeholder="Your Email" required>
@@ -107,7 +106,6 @@
   </p>
 </section>
 
-
     <!-- SOCIAL LINKS -->
     <section id="social">
       <h3>Connect with SVP Funnels</h3>
@@ -123,22 +121,13 @@
     </section>
   </main>
 
-    <!-- FOOTER -->
+  <!-- FOOTER -->
   <footer>
     © 2025 Tiny Team Digital Studio • Designed by 
     <a href="https://tinyteamdigitalstudio.github.io" target="_blank">Tiny Team Digital Studio</a>
     &nbsp;|&nbsp; Powered by 
     <a href="https://svpfunneldesignservices.com" target="_blank">SVP Funnels</a>
   </footer>
-
-  <script>
-function showThankyou() {
-  // slight delay so Google receives data first
-  setTimeout(() => {
-    window.location.href = 'thankyou.html';
-  }, 700);
-}
-</script>
 
   <!-- ✅ FINAL SCRIPT BLOCK -->
   <script>
@@ -165,13 +154,9 @@ function showThankyou() {
     });
   });
 
-  // 🌙 Form redirect to thankyou.html
-  document.getElementById('projectForm').addEventListener('submit',function(e){
-    e.preventDefault(); // stop reload
-    const form=e.target;
-    const data=new FormData(form);
-    navigator.sendBeacon(form.action, data); // send silently even on page unload
-    setTimeout(()=>{ window.location.href='thankyou.html'; },1000);
+  // 🌙 Form submission redirect via hidden iframe
+  document.getElementById('projectForm').addEventListener('submit',function(){
+    setTimeout(()=>{ window.location.href='thankyou.html'; },800);
   });
   </script>
 </body>
